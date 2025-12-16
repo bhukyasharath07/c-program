@@ -1,31 +1,34 @@
 #include<stdio.h>
-int i,j;
-void ls(int* a, int n,int  g ){
-	for (i=0;i<n;i++)
-	if(g==*(a+i)){
-		
-		printf("found at position %d\n\n\n",i+1);
-		break;
-	}
+int linear(int* a,int n, int g)
+{
+	int i;
+	for(i=0;i<n;i++)
+	if(a[i]==g)
+	return i+1;
 	if(i==n)
-	printf("not found");
-	
+	return -1;
 }
 void main()
 {
-	int a[100],n,g,flag=0;
-	printf("enter  number of elements :");
+	int a[100],n,i,g;
+	printf("enter array size :");
 	scanf("%d",&n);
-	printf ("Enter elements: \n");
+	printf("enter elements:");
 	for(i=0;i<n;i++)
-	scanf("%d",a+i);
-	while(g!=-1){
+	scanf("%d",&a[i]);
+	printf("elements:");
+	for(i=0;i<n;i++)
+	printf("%d ",a[i]);
 	
-	printf("\nenter key(-1 to stop searhing ):");
+	printf("\nenter key:");
 	scanf("%d",&g);
-	ls(a,n,g);
+	if ( linear(a,n,g)!=-1)
+	printf("position=%d\n",linear(a,n,g));
+	else 
+	printf("not found");
 	
 	
-	}
+	
+	
+	
 }
-
